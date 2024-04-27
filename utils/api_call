@@ -7,6 +7,7 @@ const apiCall = () => {
     .then((res) => {
         console.log(res.status);
         console.log(res.body);
+        console.log("Server kept active by self call");
         setTimeout(apiCall, 1000*60*5);
     })
     .catch((err) => {
