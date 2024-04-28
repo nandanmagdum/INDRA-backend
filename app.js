@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const router = require("./routers/router");
 require("dotenv").config();
+const apiCall = require("./utils/api_call.js");
 
 const app = express();
 const PORT = 5000;
@@ -27,3 +28,4 @@ mongoose.connect(process.env.MONGO_URL)
     console.log(error.message);
 })
 
+apiCall.apiCall();
