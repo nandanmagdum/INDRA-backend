@@ -1,4 +1,6 @@
-const authRouter = require("./auth.router");
+const { authMiddleware } = require("../middlewares/auth.middleware.js");
+const authRouter = require("./auth.router.js");
+const userRouter = require("./user.router.js");
 
 const express  = require("express");
 
@@ -9,5 +11,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/auth", authRouter);
+router.use("/user", authMiddleware , userRouter);
 
 module.exports = router;
