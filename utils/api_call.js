@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const apiUrl = "https://indra-backend.onrender.com/";
+const apiUrl = "https://indra-backend-cxg7.onrender.com/";
 
 const apiCall = () => {
     axios.get(apiUrl)
@@ -11,7 +11,7 @@ const apiCall = () => {
         setTimeout(apiCall, 1000*60*10);
     })
     .catch((err) => {
-        console.error("Error calling the api");
+        console.error(`Error calling the api ${err.message}`);
         setTimeout(apiCall, 1000*60*10);
     });
 }
