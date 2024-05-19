@@ -9,8 +9,6 @@ const createUserController = async(req, res) => {
         if(!user){
             return res.status(400).json("Error creating new user");
         }
-        // return res.status(200).json(newUser);
-        // create json web token
         const token = await jwt.sign(
             {
             name: user.name,

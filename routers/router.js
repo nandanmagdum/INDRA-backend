@@ -3,6 +3,7 @@ const authRouter = require("./auth.router.js");
 const userRouter = require("./user.router.js");
 
 const express  = require("express");
+const videoRouter = require("./video.router.js");
 
 const router = express.Router();
 
@@ -12,5 +13,6 @@ router.get("/", (req, res) => {
 
 router.use("/auth", authRouter);
 router.use("/user", authMiddleware , userRouter);
+router.use("/video", videoRouter);
 
 module.exports = router;
