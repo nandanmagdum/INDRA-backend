@@ -4,20 +4,21 @@ const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
-const authMiddleware = async(req, res, next) => {
+const authMiddleware = async (req, res, next) => {
     try {
         const token = req.headers.authorization;
-        if(!token){
+        if (!token) {
             return res.status(400).json("Token absent");
         }
 
         // verify token
         const payload = await jwt.verify(token, process.env.JWT_KEY);
-        if(!payload){
+        if (!payload) {
             return res.status(400).json("Token expired");
         }
         req.phone = payload.phone;
         req._id = payload._id;
+        req.uuid = payload.uuid;
         next();
     } catch (error) {
         return res.status(500).json(error.message);

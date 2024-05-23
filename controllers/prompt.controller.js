@@ -5,7 +5,7 @@ const addPromptController = async(req, res) => {
    try {
     const data = req.body;
     const updateUser = await userModel.findOneAndUpdate(
-        {_id: req._id},
+        {uuid: req.uuid},
         {
             $push : {
                 prompts: {
