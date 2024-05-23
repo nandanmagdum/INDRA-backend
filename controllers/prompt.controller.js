@@ -27,9 +27,9 @@ const addPromptController = async(req, res) => {
 }
 
 const getAllPromptsController = async(req, res) => {
-    const userId = req._id;
+    const userId = req.uuid;
     try {
-        const user = await userModel.findOne({_id: userId});
+        const user = await userModel.findOne({uuid: userId});
         if(!user){
             return res.status(400).json("Error getting the user");
         }
