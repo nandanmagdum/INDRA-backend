@@ -11,6 +11,7 @@ const createUserController = async(req, res) => {
         }
         const token = await jwt.sign(
             {
+            _id: user._id,
             name: user.name,
             phone: user.phone,
             uuid: user.uuid,

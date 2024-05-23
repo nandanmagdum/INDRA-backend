@@ -11,8 +11,18 @@ const userSchema = mongoose.Schema({
         taluka: {type: String, required: true},
         district: {type: String, required: true},
         zip: {type: Number, required: true},
-        state: {type: String, required: true}
-    }
+        state: {type: String, required: true},
+    },
+    prompts:[{
+        prompt : {
+            type : String,
+            required : true
+        },
+        answer : {
+            type : String,
+            required : true
+        },
+    }]
 });
 
 const userModel = mongoose.model("users", userSchema);
