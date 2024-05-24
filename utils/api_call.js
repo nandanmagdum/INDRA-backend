@@ -1,8 +1,21 @@
 const axios = require("axios");
+const { response } = require("express");
 
 const apiUrl = "https://indra-backend-cxg7.onrender.com/";
 
+const fertilizer_url = "https://fertilizer-prediction-skoz.onrender.com/fertilizer-predict";
+
+const postData = {
+    crop: 'rice',
+    N : 30,
+    P: 23,
+    K: 28
+  };
+
 const apiCall = () => {
+    axios.post(fertilizer_url, postData).then((res) => {
+        console.log(res.data);
+    })
     axios.get(apiUrl)
     .then((res) => {
         console.log(res.status);
